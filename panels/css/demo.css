@@ -1,0 +1,300 @@
+/* Layout Demos - Columns */
+
+/* Default settings */
+* {
+  box-sizing: border-box;
+}
+html, body {
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+h1 {
+  text-align: center;
+  font-size: 2.0em;
+  margin: 0;
+  padding: 10px;
+}
+h2 {
+  text-align: center;
+  font-size: 1.4em;
+  margin: 0px 0px 6px 0px;
+}
+
+
+/*
+  GRID-BASED COLUMNS
+
+  Use div elements with %-based widths and 'display:inline-block;'
+  to make fluid columns.
+   - You will need to comment out any space between
+     elements for this to work!
+*/
+#wrap {
+  width: 100%;
+  height: 100%;
+}
+header {
+  width: 100%;
+  padding: 8px;
+  text-align: center;
+}
+header a {
+  text-decoration: none;
+  color: black;
+}
+header a:hover {
+  color: #555C9D;
+}
+section {
+  width: 100%;
+  background-color: #D5DAE1;
+  padding: 4px 10px;
+}
+
+
+/* PANELS */
+.content {
+  width: 80%;
+  height: 520px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+.panel {
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
+  position: relative;
+  border: 2px solid white;
+}
+#panel-1 {
+  background-image: url("../img/fruits-and-veggies.jpg");
+  background-position: 0px 0px;
+}
+#panel-2 {
+  background-image: url("../img/baked-goods.jpg");
+  background-position: 0px 0px;
+}
+#panel-3 {
+  background-image: url("../img/junk-food.jpg");
+  background-position: 0px 0px;
+  float: right;
+}
+/* vertical text for the panel title */
+.panel-title {
+  font-size: 42px;
+  width: 160px;
+  position: absolute;
+  bottom: 64px;
+  left: -48px;
+  z-index: 100;
+  color: #111112;
+  font-weight: bold;
+  text-shadow: 1px 2px 1px #DBDBE3;
+    /* disable user select */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+  /* rotate 90 degrees */
+  -ms-transform: rotate(270deg); /* IE 9 */
+  -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+  transform: rotate(270deg);
+}
+.default {
+  width: 33.33%;
+
+  -webkit-transition: width 0.75s ease-out;
+  -moz-transition: width 0.75s ease-out;
+  -o-transition: width 0.75s ease-out;
+  transition: width 0.75s ease-out;
+}
+.default:hover {
+  cursor: pointer;
+}
+.default:hover .panel-title {
+  color: #1E1F20;
+  text-shadow: 1px 2px 1px #9D9DA8;
+}
+.open {
+  width: 80%;
+
+ -webkit-filter: grayscale(35%);
+  filter: grayscale(35%);
+
+  -webkit-transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
+  -moz-transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
+  -o-transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
+  transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
+}
+.closed {
+  width: 10%;
+
+  -webkit-transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
+  -moz-transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
+  -o-transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
+  transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
+}
+.closed:hover {
+  cursor: pointer;
+}
+.closed:hover .panel-title {
+  color: #1E1F20;
+  text-shadow: 1px 2px 1px #9D9DA8;
+}
+
+
+
+/* GALLERY */
+.gallery {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: rgba(220, 220, 220, 0.85);
+}
+.gallery-menu {
+  width: 25%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #B3B3B3;
+}
+.gallery-text {
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px 16px;
+  text-align: justify;
+  overflow-y: scroll;
+  border: 1px solid #B3B3B3;
+}
+.inactive {
+  visibility:hidden;
+  opacity:0;
+
+  -webkit-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+  -moz-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+  -o-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+  transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+}
+.active {
+  visibility:visible;
+  opacity:1;
+
+  -webkit-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+  -moz-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+  -o-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+  transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+
+  -webkit-transition-delay: 0.5s;
+  -moz-transition-delay: 0.5s;
+  -o-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+.button {
+  width: 44%;
+  height: 120px;
+  background-color: white;
+  color: white;
+  text-shadow: 2px 2px 4px #2D2D2D;
+  margin: 1%;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  background-image: cover;
+  /* rounded corners */
+  border-radius: 4px 4px 4px 4px;
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  /* shadows */
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
+  /* disable user select */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+  /* transition */
+  -webkit-transition: width 0.5s ease-out, height 0.5s ease-out, background-color 0.5s ease-out;
+  -moz-transition: width 0.5s ease-out, height 0.5s ease-out, background-color 0.5s ease-out;
+  -o-transition: width 0.5s ease-out, height 0.5s ease-out, background-color 0.5s ease-out;
+  transition: width 0.5s ease-out, height 0.5s ease-out, background-color 0.5s ease-out;
+}
+.button:hover {
+  cursor: pointer;
+  width: 46%;
+  height: 124px;
+  background-color: #CCCCDA;
+  /* transition */
+  -webkit-transition: width 0.5s ease-out, height 0.5s ease-out, background-color 0.5s ease-out;
+  -moz-transition: width 0.5s ease-out, height 0.5s ease-out, background-color 0.5s ease-out;
+  -o-transition: width 0.5s ease-out, height 0.5s ease-out, background-color 0.5s ease-out;
+  transition: width 0.5s ease-out, height 0.5s ease-out, background-color 0.5s ease-out;
+}
+/* SELECT BUTTON */
+.desaturate{
+ -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  background-color: #DADDE1;
+}
+.saturate{
+ -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+  background-color: white;
+}
+
+/* CLOSE PANELS */
+.close-panels {
+  font-size: 24px;
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  color: white;
+  text-shadow: 2px 2px 4px #2D2D2D;
+  z-index: 1;
+    /* disable user select */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+.close-panels:hover {
+  cursor: pointer;
+  color: #C3C9CD;
+}
+
+
+/* Compiled Mixin to customize scrollbars
+   Beware, this does not work in all browsers
+   @author Hugo Giraudel
+   @param {Length} $size - Horizontal scrollbar's height and vertical scrollbar's width
+   @param {Color} $foreground-color - Scrollbar's color
+   @param {Color} $background-color [mix($foreground-color, white, 50%)] - Scrollbar's color
+   @example scss - Scrollbar styling
+     @include scrollbars(.5em, slategray); */
+::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: slategray;
+}
+
+::-webkit-scrollbar-track {
+  background: #b8c0c8;
+}
+
+.gallery {
+  scrollbar-face-color: slategray;
+  scrollbar-track-color: #b8c0c8;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Layout Demos - Columns</title>
+
+    <style>
+      .grey {
+        background-color: #B8B8B8;
+      }
+    </style>
+
+    <!-- CSS -->
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="wrap">
+      <header >
+        <h1>Columns</h1>
+        <a href="../index.html" >Home</a> |
+        <a href="../centering/index.html" >Centering</a> |
+        <a href="../columns/index.html" >Columns</a> |
+        <a href="../fixed-nav/index.html" >Fixed Nav</a> |
+        <a href="../transitions/index.html" >Transitions</a> |
+        <a href="../panels/demo.html" >Panel Gallery</a>
+      </header>
+      <section >
+        <h2>With in-line block and the whitespace/comment hack!</h2>
+      </section>
+      <section>
+        <h2>2 Column Grid</h2>
+        <div class="content">
+          <!--Comment out space inbetween inline elements!-->
+          <div class="col-2-1"></div><!--
+          --><div class="col-2-1"></div>
+        </div>
+      </section>
+      <section class="grey">
+        <h2>3 Column Grid</h2>
+        <div class="content">
+          <div class="col-3-1"></div><!--
+          --><div class="col-3-1"></div><!--
+          --><div class="col-3-1"></div>
+        </div>
+      </section>
+      <section>
+        <h2>3 Column Grid, 2 Columns (Different Widths)</h2>
+        <div class="content">
+          <div class="col-3-2 grey"></div><!--
+          --><div class="col-3-1"></div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

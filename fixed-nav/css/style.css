@@ -1,0 +1,80 @@
+/* Layout Demos - Fixed Navigation Bar */
+
+/* Default settings */
+* {
+  box-sizing: border-box;
+}
+html, body {
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+}
+h1 {
+  text-align: center;
+  font-size: 2.0em;
+}
+
+
+/*
+  Fixed Navigation Bar
+
+  Header element uses 'position: fixed;' to remain positioned
+  at the top of the page.  This removes the element from the 
+  normal flow of the page, shifting the remainder of the page 
+  up and underneath the nav bar (overlap occurs!).
+
+  To fix this problem, shift the Wrap div (#wrap) down the same
+  amount as the height of the navigation bar (use margin here!).
+
+  Other Useful Hints:
+   - An element with a 'fixed' position MUST have a parent element
+     with 'relative' position
+   - Use padding to give extra vertical space within the #wrap element
+*/
+#wrap {
+  width: 100%;
+  position: relative;
+  margin: 100px 0px 0px 0px; /* shift wrap down for fixed nav bar */
+  font-size: 1.6em;
+  border: 2px solid black;
+}
+/* Nav */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* higher #'s are on top */
+  width: 100%;
+  height: 100px;
+  background-color: #9CAFA4;
+  font-size: 1.2em;
+  text-align: center;
+  border: 2px solid green;
+}
+header nav {
+  width: 80%;
+  margin: auto;
+  padding: 34px;
+  border: 2px solid pink;
+}
+/* Main Content */
+section {
+  width: 100%;
+  border: 2px solid blue;
+}
+.content {
+  width: 80%;
+  height: 800px;
+  margin: auto;
+  border: 2px solid red;
+}
+footer {
+  width: 100%;
+  border: 2px solid orange;
+}
+footer .content {
+  height: 100px;
+}

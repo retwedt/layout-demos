@@ -1,0 +1,188 @@
+/* Layout Demos - Transitions */
+
+/* Default settings */
+* {
+  box-sizing: border-box;
+}
+html, body {
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+}
+h1 {
+  text-align: center;
+  font-size: 2.0em;
+}
+header {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid blue;
+}
+section {
+  width: 100%;
+  border: 2px solid blue;
+}
+
+
+/*
+  Transitions
+
+  Transitions are a convenient way of animating changes between CSS rules.
+  Transitions are triggered with events, usually :hover or :active.  When
+  the transition is triggered, the CSS properties of an element will animate
+  between the normal properties and the event properties.
+    i.e.
+      .main {
+        transition: background-color 0.5s ease;
+        background-color: red;
+      }
+      .main:hover {
+        background-color: green;
+      }
+
+  Transitions can be set using the 'transition' property.
+    i.e.
+      transition: background-color 0.8s ease;
+   - First value is the CSS property being changed
+     * background-color, width, height, etc.
+     * all will change all CSS properties in a class
+   - Second value is amount of time for transition
+     * can be in seconds (s) or miliseconds (ms)
+   - Third value is easing function
+     * if you don't know what this is, choose 'ease' or 'linear'
+*/
+.content {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+  border: 2px solid red;
+}
+.content p {
+  font-size: 1.4em;
+}
+.top {
+  height: 160px;
+}
+/* Transitions */
+.block {
+  display: inline-block;
+  vertical-align: top;
+  width: 23.33%;
+  height: 64px;
+  margin: 5%;
+  background-color: #424245;
+  font-size: 1.6em;
+  line-height: 3.8em;
+  color: #000;
+  text-align: center;
+  cursor: pointer;
+}
+/* Single Property transition */
+.block-1 {
+  transition: height 0.8s ease;
+}
+.block-1:hover {
+  height: 84px;
+}
+/* Multiple Properties transition */
+.block-2 {
+  transition: background-color 0.8s ease, color 0.8s ease;
+}
+.block-2:hover {
+  background-color: red;
+  color: #fff;
+}
+/* All Properties transition */
+.block-3 {
+  transition: all 0.4s ease;
+  padding: 0;
+}
+.block-content {
+  transition: all 0.4s ease;
+  height: 100%;
+  line-height: 3.8em;
+}
+.block-3:hover {
+  padding: 0;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  background-color: #000;
+}
+.block-3:hover .block-content {
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  width: 95%;
+  height: 56px;
+  margin: 4px auto 0 auto;
+  font-size: 1.1em;
+  line-height: 3.4em;
+  color: #fff;
+  background-color: #706B6B;
+  text-shadow: 1px 1px 4px #000;
+  -webkit-text-shadow: 1px 1px 4px #000;
+  -moz-text-shadow: 1px 1px 4px #000;
+}
+
+
+/* Show menu on hover */
+.nav-menu {
+  overflow: hidden;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #3F3F3F;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  cursor: pointer;
+}
+.nav-menu:hover {
+  background-color: #5C5C61;
+}
+.nav-menu:hover > nav {
+  opacity: 1.0;
+  height: auto;
+}
+/*.nav-menu:active > nav {
+  opacity: 1.0;
+  height: auto;
+}*/
+nav:hover {
+  opacity: 1.0;
+}
+nav {
+  position: absolute;
+  top: 50px;
+  z-index: 500;
+  opacity: 0.0;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  background-color: white;
+  width: 120px;
+  border: 2px solid lightblue;
+}
+nav a {
+  transition: all 0.4s ease;
+  display: block;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 8px;
+  text-decoration: none;
+  color: #3F3F3F;
+}
+nav a:hover {
+  color: #5C5C61;
+  border-left: 4px solid #5C5C61;
+  text-indent: 4px;
+}
