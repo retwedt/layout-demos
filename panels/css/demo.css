@@ -135,6 +135,9 @@ section {
 .closed {
   width: 10%;
 
+ -webkit-filter: grayscale(65%);
+  filter: grayscale(65%);
+
   -webkit-transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
   -moz-transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
   -o-transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
