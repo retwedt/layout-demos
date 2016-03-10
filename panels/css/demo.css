@@ -39,6 +39,26 @@ section {
 }
 
 
+/* NAVIGATION MENU FOR DESKTOP */
+nav {
+  z-index: 500;
+  background-color: white;
+  text-align: center;
+}
+nav a {
+  padding: 4px;
+  color: black;
+  text-decoration: none;
+  white-space: nowrap; /* prevent word wrap on mobile menu */
+}
+nav a:hover {
+  color: #555C9D;
+}
+.bars {
+  display: none;
+}
+
+
 /* PANELS */
 .content {
   width: 80%;
@@ -141,6 +161,10 @@ section {
   height: 100%;
   margin: auto;
   background-color: rgba(220, 220, 220, 0.85);
+  /* shadows */
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
 }
 .gallery-menu {
   width: 25%;
@@ -186,6 +210,7 @@ section {
 }
 .button {
   width: 44%;
+  max-width: 96px;
   height: 120px;
   color: white;
   text-shadow: 2px 2px 4px #2D2D2D;
@@ -264,89 +289,24 @@ section {
 }
 
 
-/* NAVIGATION MENU FOR DESKTOP */
-nav {
-  z-index: 500;
-  background-color: white;
-  text-align: center;
-}
-nav a {
-  padding: 4px;
-  color: black;
-  text-decoration: none;
-  white-space: nowrap; /* prevent word wrap on mobile menu */
-}
-nav a:hover {
-  color: #555C9D;
-}
-.bars {
-  display: none;
-}
-
-
-/* Compiled Mixin to customize scrollbars
-   Beware, this does not work in all browsers
-   @author Hugo Giraudel */
-::-webkit-scrollbar {
+/* Custom CSS Scrollbar applied to any div inside of .panel
+   from https://css-tricks.com/custom-scrollbars-in-webkit/ */
+div.panel *::-webkit-scrollbar {
   width: 0.5em;
-  height: 0.5em;
 }
-::-webkit-scrollbar-thumb {
-  background: slategray;
+div.panel *::-webkit-scrollbar-thumb {
+  background: #708090;
 }
-::-webkit-scrollbar-track {
-  background: #b8c0c8;
-}
-.gallery {
-  scrollbar-face-color: slategray;
-  scrollbar-track-color: #b8c0c8;
+div.panel *::-webkit-scrollbar-track {
+  background: #B8C0C8;
 }
 
 
 /* Media Queries for responsive layouts */
 @media screen and (max-width: 360px) {
-  .gallery-menu {
-    width: 100%;
-    height: auto;
-  }
-  .gallery-text {
-    width: 100%;
-    height: auto;
-    overflow-y: hidden;
-  }
-  .panel-title {
-    font-size: 16px;
-    bottom: 74px;
-    left: -72px;
-  }
-  .active {
-    overflow-y: scroll;
-  }
-}
-@media screen and (min-width: 361px) and (max-width: 640px) {
-  .gallery-menu {
-    width: 100%;
-    height: auto;
-  }
-  .gallery-text {
-    width: 100%;
-    height: auto;
-    overflow-y: hidden;
-  }
-  .panel-title {
-    font-size: 24px;
-    bottom: 74px;
-    left: -64px;
-  }
-  .active {
-    overflow-y: scroll;
-  }
-}
-/* mobile nav */
-@media screen and (max-width: 640px) {
   /* Show menu on hover */
   .nav-menu {
-    width: 100px;
+    width: 136px;
     height: 32px;
     overflow: hidden;
     position: absolute;
@@ -358,9 +318,9 @@ nav a:hover {
     overflow: visible;
   }
   .bars {
-    width: 34px;
-    height: 3px;
-    margin: 4px 6px 4px 60px;
+    width: 24px;
+    height: 2px;
+    margin: 4px 6px 4px 106px;
     display: block;
     background-color: black;
   }
@@ -396,18 +356,131 @@ nav a:hover {
     -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
     box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
   }
-}
-@media screen and (min-width: 1200px) {
+  /* gallery */
+  .gallery-menu {
+    width: 100%;
+    height: auto;
+  }
   .gallery-text {
+    width: 100%;
+    height: auto;
     overflow-y: hidden;
   }
+  .panel-title {
+    font-size: 16px;
+    bottom: 74px;
+    left: -72px;
+  }
+  .active {
+    overflow-y: scroll;
+  }
 }
-/* for short screens/landscape views */
-@media screen and (max-height: 600px) and (min-width: 640px) {
+@media screen and (min-width: 361px) and (max-width: 640px) {
+  /* Show menu on hover */
+  .nav-menu {
+    width: 136px;
+    height: 32px;
+    overflow: hidden;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    cursor: pointer;
+  }
+  .nav-menu:hover {
+    overflow: visible;
+  }
+  .bars {
+    width: 24px;
+    height: 2px;
+    margin: 4px 6px 4px 106px;
+    display: block;
+    background-color: black;
+  }
+  .nav-menu:hover .bars {
+    background-color: #555C9D;
+  }
+  .nav-menu:hover > nav {
+    opacity: 1.0;
+    height: auto;
+  }
+  nav:hover {
+    opacity: 1.0;
+  }
+  nav {
+    position: absolute;
+    top: 24px;
+    right: 0px;
+    z-index: 500;
+    opacity: 0.0;
+    padding: 10px;
+    background-color: white;
+    text-align: left;
+    /* rounded corners */
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    /* transition */
+    transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    /* shadows */
+    -webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
+  }
+  /* gallery */
+  .gallery-menu {
+    width: 100%;
+    height: auto;
+    overflow-y: hidden;
+  }
+  .gallery-text {
+    width: 100%;
+    height: auto;
+    overflow-y: hidden;
+  }
+  .panel-title {
+    font-size: 24px;
+    bottom: 74px;
+    left: -64px;
+  }
+  .active {
+    overflow-y: scroll;
+  }
+}
+@media screen and (min-width: 641px) and (max-width: 960px) {
+  .gallery-menu {
+    width: 100%;
+    height: auto;
+    overflow-y: hidden;
+  }
+  .gallery-text {
+    width: 100%;
+    height: auto;
+    overflow-y: hidden;
+  }
+  .panel-title {
+    font-size: 24px;
+    bottom: 74px;
+    left: -64px;
+  }
+  .active {
+    overflow-y: scroll;
+  }
+}
+@media screen and (min-width: 961px) and (max-width: 1200px) {
   .gallery-menu {
     overflow-y: scroll;
   }
   .gallery-text {
     overflow-y: scroll;
+  }
+}
+@media screen and (min-width: 1201px) {
+  .gallery-menu {
+    overflow-y: hidden;
+  }
+  .gallery-text {
+    overflow-y: hidden;
   }
 }

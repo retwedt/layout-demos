@@ -123,7 +123,7 @@ function swapLayout() {
 		var mainContent = activeGallery.querySelector(".gallery-text");
 
 		// check window width
-		if (window.innerWidth <= 640) {
+		if (window.innerWidth <= 960) {
 			// if window is a mobile width, rearrange the elements
 		  activeGallery.replaceChild(firstMenu, mainContent);
 		  activeGallery.insertBefore(mainContent, firstMenu); 
