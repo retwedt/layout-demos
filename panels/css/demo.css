@@ -77,8 +77,8 @@ section {
   left: -48px;
   z-index: 100;
   font-weight: bold;
-  color: #1E1F20;
-  text-shadow: 1px 2px 1px #9D9DA8;
+  color: #161717;
+  text-shadow: 1px 2px 1px #B6B6C0;
   /* disable user select */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer */
@@ -101,8 +101,8 @@ section {
   cursor: pointer;
 }
 .default:hover .panel-title {
-  color: #111112;
-  text-shadow: 1px 2px 1px #DBDBE3;
+  color: #000000;
+  text-shadow: 1px 2px 2px #E9E9F1;
 }
 .open {
   width: 80%;
@@ -130,8 +130,8 @@ section {
   cursor: pointer;
 }
 .closed:hover .panel-title {
-  color: #111112;
-  text-shadow: 1px 2px 1px #DBDBE3;
+  color: #000000;
+  text-shadow: 1px 2px 2px #E9E9F1;
 }
 
 
