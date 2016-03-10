@@ -1,6 +1,6 @@
-/* Layout Demos - Columns */
+/* RESPONSIVE PANEL GALLERY DEMO */
 
-/* Default settings */
+/* DEFAULT SETTINGS */
 * {
   box-sizing: border-box;
 }
@@ -23,16 +23,6 @@ h2 {
   font-size: 1.4em;
   margin: 0px 0px 6px 0px;
 }
-
-
-/*
-  GRID-BASED COLUMNS
-
-  Use div elements with %-based widths and 'display:inline-block;'
-  to make fluid columns.
-   - You will need to comment out any space between
-     elements for this to work!
-*/
 #wrap {
   width: 100%;
   height: 100%;
@@ -41,13 +31,6 @@ header {
   width: 100%;
   padding: 8px;
   text-align: center;
-}
-header a {
-  text-decoration: none;
-  color: black;
-}
-header a:hover {
-  color: #555C9D;
 }
 section {
   width: 100%;
@@ -93,10 +76,10 @@ section {
   bottom: 64px;
   left: -48px;
   z-index: 100;
-  color: #111112;
   font-weight: bold;
-  text-shadow: 1px 2px 1px #DBDBE3;
-    /* disable user select */
+  color: #1E1F20;
+  text-shadow: 1px 2px 1px #9D9DA8;
+  /* disable user select */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer */
   -webkit-user-select: none; /* Chrome, Safari, and Opera */
@@ -108,7 +91,7 @@ section {
 }
 .default {
   width: 33.33%;
-
+  /* transition */
   -webkit-transition: width 0.75s ease-out;
   -moz-transition: width 0.75s ease-out;
   -o-transition: width 0.75s ease-out;
@@ -118,15 +101,15 @@ section {
   cursor: pointer;
 }
 .default:hover .panel-title {
-  color: #1E1F20;
-  text-shadow: 1px 2px 1px #9D9DA8;
+  color: #111112;
+  text-shadow: 1px 2px 1px #DBDBE3;
 }
 .open {
   width: 80%;
-
+  /* desaturate image */
  -webkit-filter: grayscale(35%);
   filter: grayscale(35%);
-
+  /* transition */
   -webkit-transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
   -moz-transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
   -o-transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
@@ -134,10 +117,10 @@ section {
 }
 .closed {
   width: 10%;
-
+  /* desaturate image */
  -webkit-filter: grayscale(65%);
   filter: grayscale(65%);
-
+  /* transition */
   -webkit-transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
   -moz-transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
   -o-transition: width 0.75s ease-out,  -webkit-filter 0.75s ease-out;
@@ -147,10 +130,9 @@ section {
   cursor: pointer;
 }
 .closed:hover .panel-title {
-  color: #1E1F20;
-  text-shadow: 1px 2px 1px #9D9DA8;
+  color: #111112;
+  text-shadow: 1px 2px 1px #DBDBE3;
 }
-
 
 
 /* GALLERY */
@@ -182,7 +164,7 @@ section {
 .inactive {
   visibility:hidden;
   opacity:0;
-
+  /* transition */
   -webkit-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
   -moz-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
   -o-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
@@ -191,12 +173,12 @@ section {
 .active {
   visibility:visible;
   opacity:1;
-
+  /* transition */
   -webkit-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
   -moz-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
   -o-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
   transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
-
+  /* delay */
   -webkit-transition-delay: 0.5s;
   -moz-transition-delay: 0.5s;
   -o-transition-delay: 0.5s;
@@ -205,14 +187,16 @@ section {
 .button {
   width: 44%;
   height: 120px;
-  background-color: white;
   color: white;
   text-shadow: 2px 2px 4px #2D2D2D;
   margin: 1%;
   display: inline-block;
   text-align: center;
   vertical-align: top;
-  background-image: cover;
+  /* background image */
+  -webkit-background-size: auto 100%;
+  -moz-background-size: auto 100%;
+  background-size: auto 100%;
   /* rounded corners */
   border-radius: 4px 4px 4px 4px;
   -moz-border-radius: 4px 4px 4px 4px;
@@ -227,23 +211,26 @@ section {
   -webkit-user-select: none; /* Chrome, Safari, and Opera */
   -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
   /* transition */
-  -webkit-transition: width 0.5s ease-out, height 0.5s ease-out, background-color 0.5s ease-out;
-  -moz-transition: width 0.5s ease-out, height 0.5s ease-out, background-color 0.5s ease-out;
-  -o-transition: width 0.5s ease-out, height 0.5s ease-out, background-color 0.5s ease-out;
-  transition: width 0.5s ease-out, height 0.5s ease-out, background-color 0.5s ease-out;
+  -webkit-transition: background-size 0.5s ease-out, background-color 0.5s ease-out;
+  -moz-transition: background-size 0.5s ease-out, background-color 0.5s ease-out;
+  -o-transition: background-size 0.5s ease-out, background-color 0.5s ease-out;
+  transition: background-size 0.5s ease-out, background-color 0.5s ease-out;
 }
 .button:hover {
   cursor: pointer;
-  width: 46%;
-  height: 124px;
-  background-color: #CCCCDA;
+  /* background image */
+  -webkit-background-size: auto 104%;
+  -moz-background-size: auto 104%;
+  background-size: auto 104%;
   /* transition */
-  -webkit-transition: width 0.5s ease-out, height 0.5s ease-out, background-color 0.5s ease-out;
-  -moz-transition: width 0.5s ease-out, height 0.5s ease-out, background-color 0.5s ease-out;
-  -o-transition: width 0.5s ease-out, height 0.5s ease-out, background-color 0.5s ease-out;
-  transition: width 0.5s ease-out, height 0.5s ease-out, background-color 0.5s ease-out;
+  -webkit-transition: background-size 0.5s ease-out, background-color 0.5s ease-out;
+  -moz-transition: background-size 0.5s ease-out, background-color 0.5s ease-out;
+  -o-transition: background-size 0.5s ease-out, background-color 0.5s ease-out;
+  transition: background-size 0.5s ease-out, background-color 0.5s ease-out;
 }
-/* SELECT BUTTON */
+
+
+/* SELECTED BUTTON */
 .desaturate{
  -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
@@ -254,6 +241,7 @@ section {
   filter: grayscale(0%);
   background-color: white;
 }
+
 
 /* CLOSE PANELS */
 .close-panels {
@@ -276,28 +264,150 @@ section {
 }
 
 
+/* NAVIGATION MENU FOR DESKTOP */
+nav {
+  z-index: 500;
+  background-color: white;
+  text-align: center;
+}
+nav a {
+  padding: 4px;
+  color: black;
+  text-decoration: none;
+  white-space: nowrap; /* prevent word wrap on mobile menu */
+}
+nav a:hover {
+  color: #555C9D;
+}
+.bars {
+  display: none;
+}
+
+
 /* Compiled Mixin to customize scrollbars
    Beware, this does not work in all browsers
-   @author Hugo Giraudel
-   @param {Length} $size - Horizontal scrollbar's height and vertical scrollbar's width
-   @param {Color} $foreground-color - Scrollbar's color
-   @param {Color} $background-color [mix($foreground-color, white, 50%)] - Scrollbar's color
-   @example scss - Scrollbar styling
-     @include scrollbars(.5em, slategray); */
+   @author Hugo Giraudel */
 ::-webkit-scrollbar {
   width: 0.5em;
   height: 0.5em;
 }
-
 ::-webkit-scrollbar-thumb {
   background: slategray;
 }
-
 ::-webkit-scrollbar-track {
   background: #b8c0c8;
 }
-
 .gallery {
   scrollbar-face-color: slategray;
   scrollbar-track-color: #b8c0c8;
+}
+
+
+/* Media Queries for responsive layouts */
+@media screen and (max-width: 360px) {
+  .gallery-menu {
+    width: 100%;
+    height: auto;
+  }
+  .gallery-text {
+    width: 100%;
+    height: auto;
+    overflow-y: hidden;
+  }
+  .panel-title {
+    font-size: 16px;
+    bottom: 74px;
+    left: -72px;
+  }
+  .active {
+    overflow-y: scroll;
+  }
+}
+@media screen and (min-width: 361px) and (max-width: 640px) {
+  .gallery-menu {
+    width: 100%;
+    height: auto;
+  }
+  .gallery-text {
+    width: 100%;
+    height: auto;
+    overflow-y: hidden;
+  }
+  .panel-title {
+    font-size: 24px;
+    bottom: 74px;
+    left: -64px;
+  }
+  .active {
+    overflow-y: scroll;
+  }
+}
+/* mobile nav */
+@media screen and (max-width: 640px) {
+  /* Show menu on hover */
+  .nav-menu {
+    width: 100px;
+    height: 32px;
+    overflow: hidden;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    cursor: pointer;
+  }
+  .nav-menu:hover {
+    overflow: visible;
+  }
+  .bars {
+    width: 34px;
+    height: 3px;
+    margin: 4px 6px 4px 60px;
+    display: block;
+    background-color: black;
+  }
+  .nav-menu:hover .bars {
+    background-color: #555C9D;
+  }
+  .nav-menu:hover > nav {
+    opacity: 1.0;
+    height: auto;
+  }
+  nav:hover {
+    opacity: 1.0;
+  }
+  nav {
+    position: absolute;
+    top: 24px;
+    right: 0px;
+    z-index: 500;
+    opacity: 0.0;
+    padding: 10px;
+    background-color: white;
+    text-align: left;
+    /* rounded corners */
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    /* transition */
+    transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    /* shadows */
+    -webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.5);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .gallery-text {
+    overflow-y: hidden;
+  }
+}
+/* for short screens/landscape views */
+@media screen and (max-height: 600px) and (min-width: 640px) {
+  .gallery-menu {
+    overflow-y: scroll;
+  }
+  .gallery-text {
+    overflow-y: scroll;
+  }
 }

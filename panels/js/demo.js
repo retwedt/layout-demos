@@ -1,5 +1,7 @@
 //main.js
 
+
+//JSON to store bios
 var bios = {
 	1: {
 		"img": "img/buttons/bell-peppers.jpg",
@@ -40,12 +42,12 @@ var bios = {
 }
 
 
-
 // get elements from dom
 var panels = document.querySelectorAll(".panel");
 var galleries = document.querySelectorAll(".gallery");
 var buttons = document.querySelectorAll(".button");
 var close = document.querySelector(".close-panels");
+
 
 // set up default gallery
 for (var i=0; i<galleries.length; i++) {
@@ -56,6 +58,7 @@ for (var i=0; i<galleries.length; i++) {
 	galleries[i].querySelector("p").textContent = bios[startNum]["bio"];
 	btn[rnd].setAttribute("class", "button saturate");
 }
+
 
 // bind panel function
 for (var i = 0; i < panels.length; i++) {
@@ -69,6 +72,7 @@ for (var i = 0; i < panels.length; i++) {
 		thisGallery.setAttribute("class", "gallery active");
 	});
 }
+
 
 // bind button function
 for (var i = 0; i < buttons.length; i++) {
@@ -88,13 +92,45 @@ for (var i = 0; i < buttons.length; i++) {
 		galleryTitle.textContent = "Title #" + this.id;
 		galleryText.textContent = bios[this.id]["bio"];
 		buttons[this.id-1].setAttribute("class", "button saturate");
+		// when a button is clicked on, scroll back to top of gallery
+		// this will only come into effect on mobile layouts
+		gallery.scrollTop = 0;
 	});
 }
+
 
 // close panels function
 close.onclick = function() {
 	for (var i=0; i<panels.length; i++) {
 		galleries[i].setAttribute("class", "gallery inactive");
 		panels[i].setAttribute("class", "panel default");
+	}
+}
+
+
+// bind swapLayout function to events
+window.onload = swapLayout;
+window.onresize = swapLayout;
+window.onclick = swapLayout;
+
+// function to rearrange gallery on mobile
+function swapLayout() {
+	// make sure there is an active gallery,
+	// then get the dom elements
+	if (document.querySelector(".active") != null) {
+		var activeGallery = document.querySelector(".active");
+		var firstMenu = activeGallery.querySelector(".gallery-menu");
+		var mainContent = activeGallery.querySelector(".gallery-text");
+
+		// check window width
+		if (window.innerWidth <= 640) {
+			// if window is a mobile width, rearrange the elements
+		  activeGallery.replaceChild(firstMenu, mainContent);
+		  activeGallery.insertBefore(mainContent, firstMenu); 
+		} else {
+			// if window is a desktop width, rearrange the elements
+		  activeGallery.replaceChild(mainContent, firstMenu);
+		  activeGallery.insertBefore(firstMenu, mainContent); 
+		}
 	}
 }
