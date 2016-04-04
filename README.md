@@ -7,7 +7,6 @@ These HTML demos were created for the Intro to Modern Web Design course at CodeA
 -	[Columns](https://github.com/retwedt/layout-demos/tree/master/columns) - reusable column classes with css.
 -	[Fixed Nav](https://github.com/retwedt/layout-demos/tree/master/fixed-nav) - top fixed navigation bar.
 -	[Transitions](https://github.com/retwedt/layout-demos/tree/master/transitions) - css transitions and hover events.
--	[Panel Gallery](https://github.com/retwedt/layout-demos/tree/master/panels) - sliding panels with multiple galleries, transitions, and images.
 
 ## Directory Structure
 
@@ -25,12 +24,6 @@ These HTML demos were created for the Intro to Modern Web Design course at CodeA
 ├── transitions/
     ├── css/
     └── index.html
-├── panels/
-    ├── css/
-    ├── img/
-    ├── js/
-    ├── index.html
-    └── demo.html
 ├── index.html
 └── README.md
 ```
